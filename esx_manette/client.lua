@@ -31,3 +31,15 @@ AddEventHandler('esx_manette:ammanetta', function()
 	end
 
 end)
+
+ESX.RegisterUsableItem('manette', function()
+	local closestPlayer, closestPlayerDistance = ESX.Game.GetClosestPlayer()
+		
+		if closestPlayer == -1 or closestPlayerDistance > 2.0 then
+                  ESX.ShowNotification('Nessun giocatore trovato')
+                else
+                  ESX.ShowNotification(('Giocatore trovato'):format(GetPlayerName(closestPlayer), closestPlayerDistance))
+                 end
+	end
+end)
+    
